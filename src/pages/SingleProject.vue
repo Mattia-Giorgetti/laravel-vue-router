@@ -22,7 +22,7 @@
             >View code on <i class="fa-brands fa-github fs-4 ms-2"></i>
           </a>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 mt-sm-5">
           <img
             class="img-fluid"
             :src="`${store.imgpath}${project.cover_image}`"

@@ -6,7 +6,7 @@
         <span>/</span>
         <span>Laravel</span>
       </div>
-      <nav>
+      <nav class="d-sm-none d-lg-block">
         <ul class="list-unstyled d-flex align-items-center mb-0 gap-4">
           <li v-for="(item, index) in store.navbarLinks" :key="index">
             <router-link :to="{ name: item.url }" active-class="active-li">{{
@@ -15,6 +15,22 @@
           </li>
         </ul>
       </nav>
+      <span class="d-lg-none hamburger_menu" @click="store.isDropDown = !store.isDropDown"
+        ><i class="fa-solid fa-bars"></i
+      ></span>
+      <Transition>
+        <div class="dropdown" v-if="store.isDropDown">
+          <ul
+            class="list-unstyled d-flex justify-content-center align-items-center mb-0 gap-4 pt-1 pb-3"
+          >
+            <li v-for="(item, index) in store.navbarLinks" :key="index">
+              <router-link :to="{ name: item.url }" active-class="active-li">{{
+                item.link
+              }}</router-link>
+            </li>
+          </ul>
+        </div>
+      </Transition>
     </div>
   </header>
 </template>
@@ -64,6 +80,31 @@ header {
     &:hover {
       opacity: 0.8;
     }
+  }
+  .hamburger_menu {
+    color: $bg-color;
+    font-size: 1.6rem;
+    transition: all 0.3s ease;
+    &:hover {
+      color: $third-color;
+      cursor: pointer;
+    }
+  }
+  .dropdown {
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    width: 100%;
+    background-color: $primary-color;
+  }
+  .v-enter-active,
+  .v-leave-active {
+    transition: opacity 0.3s ease;
+  }
+
+  .v-enter-from,
+  .v-leave-to {
+    opacity: 0;
   }
 }
 </style>

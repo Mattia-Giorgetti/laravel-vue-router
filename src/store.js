@@ -3,6 +3,7 @@ export const store = reactive({
     title: "Hello Vue-Laravel!",
     apiURL: "http://localhost:8000/api/",
     imgpath: "http://localhost:8000/storage/",
+    isDropDown: false,
     projectsArray: [],
     navbarLinks: [{
         link: 'Home',

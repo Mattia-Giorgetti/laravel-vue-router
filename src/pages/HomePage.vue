@@ -1,13 +1,13 @@
 <template>
   <section id="home_page">
     <div class="container">
-      <h1 class="py-5 hidden">Welcome to my Portfolio</h1>
-      <div class="dev_define py-5 mt-5">
+      <h1 class="py-5 hidden pb-sm-0">Welcome to my Portfolio</h1>
+      <div class="dev_define py-5 mt-5 mt-sm-0 pt-sm-0">
         <div class="row justify-content-between h-100">
           <div class="col-lg-5 h-100 d-flex flex-column justify-content-center hidden">
-            <h4>Lorem ipsum <span>Lorem ipsum dolor sit amet. </span></h4>
+            <h4 class="mb-sm-5">Lorem ipsum <span>Lorem ipsum dolor sit amet. </span></h4>
           </div>
-          <div class="col-lg-6 position-relative">
+          <div class="col-lg-6 position-relative py-sm-5">
             <img
               class="hidden"
               src="https://posizioniaperte.com/wp-content/uploads/2021/12/web-developer-offerte-di-lavoro.jpg"
@@ -24,7 +24,7 @@
       <h3 class="text-center py-4 mt-5 hidden">Lorem, ipsum dolor!</h3>
       <div class="py-4">
         <div class="d-flex">
-          <div class="col-lg-6">
+          <div class="col-lg-6 mt-sm-4">
             <p class="hidden">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet a optio
               praesentium quam tenetur facilis illum laborum repellat quasi sint!

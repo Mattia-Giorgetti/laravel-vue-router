@@ -2,7 +2,7 @@
   <footer class="py-4">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 align-self-center">
+        <div class="col-lg-6 align-self-center mb-sm-5">
           <h4 class="mb-4">Vue/Laravel</h4>
           <div class="icons d-flex align-items-center gap-4 fs-4 mb-4">
             <i class="fa-brands fa-facebook"></i>
