@@ -31,12 +31,15 @@
         </div>
       </div>
     </div>
-    <div class="container" v-else>..Loading..</div>
+    <div class="container d-flex justify-content-center" v-else>
+      <LoaderComponent />
+    </div>
   </section>
 </template>
 
 <script>
 import axios from "axios";
+import LoaderComponent from "../components/LoaderComponent.vue";
 import { store } from "../store";
 export default {
   name: "SingleProject",
@@ -62,6 +65,7 @@ export default {
   mounted() {
     this.getSingleProject();
   },
+  components: { LoaderComponent },
 };
 </script>
 

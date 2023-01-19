@@ -1,11 +1,15 @@
 <template>
   <section>
     <div class="container">
-      <h1 class="text-center py-5">Current Projects</h1>
+      <h1 class="text-center py-5" v-if="!loading">Current Projects</h1>
 
       <div class="row" mt-5>
+        <div class="d-flex justify-content-center mt-5">
+          <LoaderComponent v-if="loading" />
+        </div>
         <TransitionGroup name="list">
           <div
+            v-if="!loading"
             class="col-lg-4"
             v-for="(item, index) in store.projectsArray"
             :key="item.id"
@@ -22,26 +26,30 @@
 import axios from "axios";
 import { store } from "../store";
 import ProjectCardComponent from "../components/ProjectCardComponent.vue";
+import LoaderComponent from "../components/LoaderComponent.vue";
 export default {
   name: "ProjectsList",
   data() {
     return {
       store,
+      loading: false,
     };
   },
   methods: {
     getProjects() {
+      this.loading = true;
       axios.get(store.apiURL + "projects").then((response) => {
         store.projectsArray = response.data.results;
         console.log(store.projectsArray);
         console.log(response.data);
+        this.loading = false;
       });
     },
   },
   mounted() {
     this.getProjects();
   },
-  components: { ProjectCardComponent },
+  components: { ProjectCardComponent, LoaderComponent },
 };
 </script>
 

@@ -2,7 +2,7 @@
   <footer class="py-4">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-6 align-self-center">
           <h4 class="mb-4">Vue/Laravel</h4>
           <div class="icons d-flex align-items-center gap-4 fs-4 mb-4">
             <i class="fa-brands fa-facebook"></i>
@@ -56,6 +56,37 @@ export default {
 @use "../assets/styles/partials/variables" as *;
 footer {
   background-color: $third-color;
+
+  li {
+    color: $bg-color;
+    display: block;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+    &:hover {
+      cursor: pointer;
+      transform: translateX(5px);
+    }
+    &:hover::after {
+      animation-name: fill;
+      animation-duration: 0.5s;
+      animation-timing-function: linear;
+    }
+  }
+  li::after {
+    content: "";
+    width: 55px;
+    height: 1px;
+    display: block;
+    background-color: white;
+  }
+  @keyframes fill {
+    0% {
+      width: 0px;
+    }
+    100% {
+      width: 55px;
+    }
+  }
   .icons {
     i {
       color: $bg-color;
