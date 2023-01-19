@@ -70,11 +70,12 @@ footer {
       animation-name: fill;
       animation-duration: 0.5s;
       animation-timing-function: linear;
+      animation-fill-mode: forwards;
     }
   }
   li::after {
     content: "";
-    width: 55px;
+    width: 0;
     height: 1px;
     display: block;
     background-color: white;
