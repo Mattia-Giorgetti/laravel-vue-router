@@ -21,11 +21,6 @@ const router = createRouter({
             component: ProjectsList
         },
         {
-            path: '/*',
-            name: 'not-found',
-            component: NotFound
-        },
-        {
             path: '/projects/:slug',
             name: 'single-project',
             component: SingleProject
@@ -39,7 +34,14 @@ const router = createRouter({
             path: '/contact',
             name: 'contact',
             component: ContactUs
-        }
+        },
+
+        //va messo per ultimo
+        {
+            path: "/:pathMatch(.*)*",
+            name: 'not-found',
+            component: NotFound
+        },
     ]
 });
 export {router}
