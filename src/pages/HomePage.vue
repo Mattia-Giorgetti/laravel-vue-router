@@ -61,23 +61,9 @@ export default {
       store,
     };
   },
-  methods: {
-    showitems() {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("showing");
-          } else {
-            entry.target.classList.remove("showing");
-          }
-        });
-      });
-      const hiddenElements = document.querySelectorAll(".hidden");
-      hiddenElements.forEach((element) => observer.observe(element));
-    },
-  },
+  methods: {},
   mounted() {
-    this.showitems();
+    store.showitems();
   },
 };
 </script>

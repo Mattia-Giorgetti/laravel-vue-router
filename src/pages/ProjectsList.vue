@@ -1,15 +1,15 @@
 <template>
-  <section>
+  <section class="py-4">
     <div class="container">
-      <h1 class="text-center py-5" v-if="!loading">Current Projects</h1>
+      <h1 class="text-center py-5" v-if="!store.loading">Current Projects</h1>
 
       <div class="row" mt-5>
         <div class="d-flex justify-content-center mt-5">
-          <LoaderComponent v-if="loading" />
+          <LoaderComponent v-if="store.loading" />
         </div>
         <TransitionGroup name="list">
           <div
-            v-if="!loading"
+            v-if="!store.loading"
             class="col-lg-4"
             v-for="(item, index) in store.projectsArray"
             :key="item.id"
@@ -32,17 +32,16 @@ export default {
   data() {
     return {
       store,
-      loading: false,
     };
   },
   methods: {
     getProjects() {
-      this.loading = true;
+      store.loading = true;
       axios.get(store.apiURL + "projects").then((response) => {
         store.projectsArray = response.data.results;
         console.log(store.projectsArray);
         console.log(response.data);
-        this.loading = false;
+        store.loading = false;
       });
     },
   },

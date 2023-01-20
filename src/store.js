@@ -4,6 +4,7 @@ export const store = reactive({
     apiURL: "http://localhost:8000/api/",
     imgpath: "http://localhost:8000/storage/",
     isDropDown: false,
+    loading: false,
     projectsArray: [],
     navbarLinks: [{
         link: 'Home',
@@ -18,7 +19,7 @@ export const store = reactive({
         url: 'contact'
     },
     {
-        link: 'About us',
+        link: 'About',
         url: 'about'
     }],
     footerLinks: [{  
@@ -45,4 +46,17 @@ export const store = reactive({
         link: 'Lorem',
         url: '#'
     },],
+    showitems() {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("showing");
+            } else {
+              entry.target.classList.remove("showing");
+            }
+          });
+        });
+        const hiddenElements = document.querySelectorAll(".hidden");
+        hiddenElements.forEach((element) => observer.observe(element));
+      }
 });

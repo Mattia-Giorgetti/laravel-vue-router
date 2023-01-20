@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container py-4">
     <h1 class="text-center py-4">Contact Us</h1>
     <div class="border-bottom pb-3">
       <span>Something to say?</span>
@@ -13,9 +13,15 @@
 
 <script>
 import ContactForm from "../components/ContactForm.vue";
+import { store } from "../store";
 export default {
   name: "ContactUs",
   components: { ContactForm },
+  data() {
+    return {
+      store,
+    };
+  },
 };
 </script>
 

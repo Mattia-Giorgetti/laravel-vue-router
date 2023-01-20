@@ -4,7 +4,7 @@
       <div v-if="success" class="alert alert-success">Mail Sent!</div>
     </Transition>
 
-    <LoaderComponent v-if="loading" />
+    <LoaderComponent v-if="store.loading" />
     <label for="name">Full Name</label>
     <input
       placeholder="insert your full name here..."
@@ -47,8 +47,8 @@
       {{ error }}
     </p>
 
-    <button type="submit" :disabled="loading">
-      {{ loading ? "Sending..." : "Send" }}
+    <button type="submit" :disabled="store.loading">
+      {{ store.loading ? "Sending..." : "Send" }}
     </button>
   </form>
 </template>
@@ -68,7 +68,6 @@ export default {
       message: "",
       success: false,
       errors: {},
-      loading: false,
     };
   },
   methods: {
@@ -78,7 +77,7 @@ export default {
       }, 2000);
     },
     sendMail() {
-      this.loading = true;
+      store.loading = true;
       const data = {
         name: this.name,
         email: this.email,
@@ -93,7 +92,7 @@ export default {
         } else {
           (this.name = ""), (this.email = ""), (this.message = "");
         }
-        this.loading = false;
+        store.loading = false;
         this.resetSuccess();
       });
     },
